@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- Configuración básica del documento -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> CatClothes | Productos </title>
+    <!-- Inyección de Tailwind CSS para estilos -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Icono de la página -->
+    <link rel="icon" href="/src/static/img/FavIcon_CatClothes.png" type="image/x-icon">
+    <!-- Fuente Raleway desde Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Definición de variables de color personalizadas */
+        :root {
+            --primary-color: #6B8E23;
+            /* Verde Oliva */
+            --secondary-color: #D2691E;
+            /* Terracota */
+            --background-color: #FFF8E7;
+            /* Crema Claro */
+            --text-color: #333333;
+            /* Gris Oscuro */
+            --alert-color: #FF4500;
+            /* Rojo Anaranjado */
+            --button-color: #9BBF4D;
+            /* Verde más claro para botones */
+            --button-hover: #7A9A3D;
+            /* Verde un poco más oscuro para hover */
+        }
+    </style>
+</head>
+
+<body class="relative m-0 bg-[var(--background-color)] text-[var(--text-color)] min-h-screen font-['Raleway']">
+    <!-- Imagen de fondo fija para toda la página -->
+    <div class="fixed inset-0 bg-[url('/src/static/img/desert_background.jpg')] bg-cover bg-center bg-no-repeat -z-10"
+        aria-hidden="true"></div>
+    <!-- Overlay semitransparente para mejorar legibilidad sobre el fondo -->
+    <div class="fixed inset-0 bg-[var(--background-color)] bg-opacity-60 -z-10"></div>
+
+    <!-- Encabezado con logo y opciones de navegación -->
+    <header id="header" class="bg-white shadow-md py-2 sm:py-4">
+        <div class="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
+            <div class="flex flex-col sm:flex-row items-center justify-between">
+                <div class="w-full sm:w-auto mb-2 sm:mb-0">
+                    <img src="/src/static/img/FavIcon2_CatClothes.png" id="logo" alt="CatClothes Logo"
+                        class="w-16 sm:w-24 md:w-32 mx-auto sm:mx-0">
+                </div>
+                <div class="w-full sm:w-auto flex justify-center sm:justify-end">
+                    <ul class="flex items-center space-x-2 sm:space-x-4">
+                        <li class="relative group">
+                            <a href="gestion_perfil.html">
+                                <img src="/src/static/img/icons/perfil.svg" id="img-perfil" alt="Perfil"
+                                    class="w-5 sm:w-6 md:w-8 h-5 sm:h-6 md:h-8 cursor-pointer">
+                            </a>
+                        </li>
+                        <li class="relative group">
+                            <img src="/src/static/img/icons/carrito.svg" id="img-carrito" alt="Carrito"
+                                class="w-5 sm:w-6 md:w-8 h-5 sm:h-6 md:h-8 cursor-pointer">
+                            <div id="carrito"
+                                class="absolute right-0 bg-white border rounded-lg shadow-lg mt-1 sm:mt-2 w-64 sm:w-72 md:w-80 opacity-0 group-hover:opacity-100 scale-0 group-hover:scale-100 transition duration-300 ease-in-out transform origin-top-right">
+                                <table id="lista-carrito" class="w-full text-xs sm:text-sm text-left">
+                                    <thead>
+                                        <tr class="border-b">
+                                            <th class="p-1 sm:p-2">Imagen</th>
+                                            <th class="p-1 sm:p-2">Nombre</th>
+                                            <th class="p-1 sm:p-2">Precio</th>
+                                            <th class="p-1 sm:p-2">Cantidad</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td colspan="5" class="p-1 sm:p-2 text-center text-[var(--text-color)]">El
+                                                carrito está vacío</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <a href="#" id="vaciar-carrito"
+                                    class="block bg-[var(--alert-color)] text-white text-center py-1 sm:py-2 rounded-b hover:bg-[#d63a25] transition duration-300">Vaciar
+                                    Carrito</a>
+                            </div>
+                        </li>
+                        <li class="relative group">
+                            <a href="publicar_producto.html">
+                                <div
+                                    class="bg-[var(--primary-color)] text-white rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center shadow-md hover:bg-[var(--secondary-color)] transition duration-300 ease-in-out scale-100 group-hover:scale-110">
+                                    <span class="text-xl sm:text-2xl font-bold">↑</span>
+                                </div>
+                            </a>
+                            <div
+                                class="absolute right-0 top-full mt-2 bg-white border rounded-lg shadow-lg w-64 sm:w-72 md:w-80 opacity-0 group-hover:opacity-100 scale-0 group-hover:scale-100 transition duration-300 ease-in-out transform origin-top-right">
+                                <p class="p-2 sm:p-4 text-center text-[var(--text-color)] text-xs sm:text-sm">Subir un
+                                    producto</p>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="login.html"
+                                class="px-3 sm:px-4 py-1 sm:py-2 bg-[var(--primary-color)] text-white rounded-md hover:bg-[var(--secondary-color)] focus:ring-4 focus:outline-none focus:ring-[var(--primary-color)] font-medium text-xs sm:text-sm transition duration-300">Iniciar
+                                Sesión</a>
+                        </li>
+                        <li>
+                            <a href="registro.html"
+                                class="px-3 sm:px-4 py-1 sm:py-2 bg-[var(--primary-color)] text-white rounded-md hover:bg-[var(--secondary-color)] focus:ring-4 focus:outline-none focus:ring-[var(--primary-color)] font-medium text-xs sm:text-sm transition duration-300">Registrarse</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sección hero con título y formulario de búsqueda -->
+    <section id="hero" class="py-6 sm:py-8 md:py-12">
+        <div class="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="w-full md:w-1/2 mb-4 md:mb-0">
+                    <div
+                        class="flex items-center mb-4 bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] text-white rounded-lg px-2 sm:px-3 py-1 sm:py-2 transition duration-300 hover:text-[#f5e8c7]">
+                        <img src="/src/static/img/FavIcon_CatClothes.png" alt="CatClothes Logo"
+                            class="w-5 sm:w-6 md:w-8 h-5 sm:h-6 md:h-8 mr-1 sm:mr-2">
+                        <span class="text-lg sm:text-xl md:text-2xl font-light">CatClothes Productos</span>
+                    </div>
+                    <h2 class="text-xl sm:text-2xl md:text-3xl font-semibold text-[var(--primary-color)] mb-2 sm:mb-4">
+                        ¡Vesti con estilo, viví mejor!</h2>
+                    <form action="#" id="busqueda" method="post" class="space-y-2">
+                        <input type="text" placeholder="¿Qué prenda te gustaría buscar?" id="buscador"
+                            class="w-full px-2 sm:px-4 py-1 sm:py-2 border border-[var(--secondary-color)] rounded-md text-xs sm:text-sm focus:ring-2 focus:ring-[var(--primary-color)] focus:border-[var(--primary-color)] transition duration-300"
+                            required>
+                        <button type="submit" id="submit-buscador"
+                            class="w-full sm:w-auto px-3 sm:px-6 py-1 sm:py-2 bg-[var(--primary-color)] text-white rounded-md hover:bg-[var(--secondary-color)] focus:ring-4 focus:outline-none focus:ring-[var(--primary-color)] font-medium text-xs sm:text-sm transition duration-300">Buscar</button>
+                    </form>
+                </div>
+                <div class="w-full md:w-1/2">
+                    <!-- Espacio reservado para imagen o contenido adicional -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de características -->
+    <section class="bg-[var(--background-color)] py-4 sm:py-6 md:py-8">
+        <div
+            class="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 sm:gap-4 text-center">
+            <div
+                class="p-2 sm:p-4 border border-[var(--secondary-color)] rounded-lg shadow-md hover:shadow-lg transition duration-300">
+                <p class="font-medium text-base sm:text-lg">Estilos para cada ocasión<br><span
+                        class="text-xs sm:text-sm text-[var(--text-color)]">Encontrá el outfit perfecto para cada
+                        momento</span></p>
+            </div>
+            <div
+                class="p-2 sm:p-4 border border-[var(--secondary-color)] rounded-lg shadow-md hover:shadow-lg transition duration-300">
+                <p class="font-medium text-base sm:text-lg">Asesoramiento de moda<br><span
+                        class="text-xs sm:text-sm text-[var(--text-color)]">Tips y recomendaciones para verte
+                        increíble</span></p>
+            </div>
+            <div
+                class="p-2 sm:p-4 border border-[var(--secondary-color)] rounded-lg shadow-md hover:shadow-lg transition duration-300">
+                <p class="font-medium text-base sm:text-lg">Comprá con confianza<br><span
+                        class="text-xs sm:text-sm text-[var(--text-color)]">Devoluciones fáciles y soporte
+                        garantizado</span></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contenido principal con lista de productos -->
+    <main>
+        <section id="lista-cursos" class="py-6 sm:py-8 md:py-12">
+            <div class="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
+                <h1 id="encabezado"
+                    class="text-xl sm:text-2xl md:text-3xl font-light text-center text-[var(--alert-color)] mb-2 sm:mb-3 md:mb-4 bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] text-white px-2 sm:px-3 py-1 sm:py-2 rounded-lg transition duration-300 hover:text-[#f5e8c7]">
+                    Elegí, pagá y recibí tus productos sin moverte de tu casa.
+                </h1>
+                <br>
+
+                <!-- Categoría Buzos -->
+                <div class="mb-6 sm:mb-8">
+                    <h2
+                        class="text-lg sm:text-xl md:text-2xl font-light text-center text-[var(--alert-color)] mb-1 sm:mb-2 md:mb-3 bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] text-white px-1 sm:px-2 py-0.5 sm:py-1 rounded-lg transition duration-300 hover:text-[#f5e8c7]">
+                        Buzos
+                    </h2>
+                    <br>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                        <div
+                            class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
+                            <img src="/src/static/img/productos/buzo.jpeg" alt="Buzo 1"
+                                class="w-full h-48 sm:h-56 md:h-64 object-cover">
+                            <div class="p-2 sm:p-4 space-y-2">
+                                <h4 class="text-sm sm:text-base font-semibold truncate">Buzo Estampado</h4>
+                                <p class="text-[var(--primary-color)] font-bold text-sm sm:text-lg">$200 <span
+                                        class="float-right text-[var(--text-color)] line-through text-xs sm:text-sm">$15</span>
+                                </p>
+                                <a href="detalles.html"
+                                    class="w-full text-white bg-[var(--button-color)] hover:bg-[var(--button-hover)] focus:ring-4 focus:outline-none focus:ring-[var(--primary-color)] font-medium rounded-lg text-sm py-2 transition duration-300 text-center block"
+                                    data-id="1">Ver detalle del producto</a>
+                            </div>
+                        </div>
+                        <div
+                            class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
+                            <img src="/src/static/img/productos/buzo.jpeg" alt="Buzo 2"
+                                class="w-full h-48 sm:h-56 md:h-64 object-cover">
+                            <div class="p-2 sm:p-4 space-y-2">
+                                <h4 class="text-sm sm:text-base font-semibold truncate">Buzo Liso</h4>
+                                <p class="text-[var(--primary-color)] font-bold text-sm sm:text-lg">$200 <span
+                                        class="float-right text-[var(--text-color)] line-through text-xs sm:text-sm">$15</span>
+                                </p>
+                                <a href="detalles.html"
+                                    class="w-full text-white bg-[var(--button-color)] hover:bg-[var(--button-hover)] focus:ring-4 focus:outline-none focus:ring-[var(--primary-color)] font-medium rounded-lg text-sm py-2 transition duration-300 text-center block"
+                                    data-id="1">Ver detalle del producto</a>
+                            </div>
+                        </div>
+                        <div
+                            class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
+                            <img src="/src/static/img/productos/buzo.jpeg" alt="Buzo 3"
+                                class="w-full h-48 sm:h-56 md:h-64 object-cover">
+                            <div class="p-2 sm:p-4 space-y-2">
+                                <h4 class="text-sm sm:text-base font-semibold truncate">Buzo con Capucha</h4>
+                                <p class="text-[var(--primary-color)] font-bold text-sm sm:text-lg">$200 <span
+                                        class="float-right text-[var(--text-color)] line-through text-xs sm:text-sm">$15</span>
+                                </p>
+                                <a href="detalles.html"
+                                    class="w-full text-white bg-[var(--button-color)] hover:bg-[var(--button-hover)] focus:ring-4 focus:outline-none focus:ring-[var(--primary-color)] font-medium rounded-lg text-sm py-2 transition duration-300 text-center block"
+                                    data-id="1">Ver detalle del producto</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Categoría Remeras -->
+                <div class="mb-6 sm:mb-8">
+                    <h2
+                        class="text-lg sm:text-xl md:text-2xl font-light text-center text-[var(--alert-color)] mb-1 sm:mb-2 md:mb-3 bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] text-white px-1 sm:px-2 py-0.5 sm:py-1 rounded-lg transition duration-300 hover:text-[#f5e8c7]">
+                        Remeras
+                    </h2>
+                    <br>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                        <div
+                            class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
+                            <img src="/src/static/img/productos/remera.jpeg" alt="Remera 1"
+                                class="w-full h-48 sm:h-56 md:h-64 object-cover">
+                            <div class="p-2 sm:p-4 space-y-2">
+                                <h4 class="text-sm sm:text-base font-semibold truncate">Remera Básica</h4>
+                                <p class="text-[var(--primary-color)] font-bold text-sm sm:text-lg">$150 <span
+                                        class="float-right text-[var(--text-color)] line-through text-xs sm:text-sm">$10</span>
+                                </p>
+                                <a href="detalles_remera.html"
+                                    class="w-full text-white bg-[var(--button-color)] hover:bg-[var(--button-hover)] focus:ring-4 focus:outline-none focus:ring-[var(--primary-color)] font-medium rounded-lg text-sm py-2 transition duration-300 text-center block"
+                                    data-id="4">Ver detalle del producto</a>
+                            </div>
+                        </div>
+                        <div
+                            class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
+                            <img src="/src/static/img/productos/remera.jpeg" alt="Remera 2"
+                                class="w-full h-48 sm:h-56 md:h-64 object-cover">
+                            <div class="p-2 sm:p-4 space-y-2">
+                                <h4 class="text-sm sm:text-base font-semibold truncate">Remera Estampada</h4>
+                                <p class="text-[var(--primary-color)] font-bold text-sm sm:text-lg">$150 <span
+                                        class="float-right text-[var(--text-color)] line-through text-xs sm:text-sm">$10</span>
+                                </p>
+                                <a href="detalles_remera.html"
+                                    class="w-full text-white bg-[var(--button-color)] hover:bg-[var(--button-hover)] focus:ring-4 focus:outline-none focus:ring-[var(--primary-color)] font-medium rounded-lg text-sm py-2 transition duration-300 text-center block"
+                                    data-id="4">Ver detalle del producto</a>
+                            </div>
+                        </div>
+                        <div
+                            class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
+                            <img src="/src/static/img/productos/remera.jpeg" alt="Remera 3"
+                                class="w-full h-48 sm:h-56 md:h-64 object-cover">
+                            <div class="p-2 sm:p-4 space-y-2">
+                                <h4 class="text-sm sm:text-base font-semibold truncate">Remera Manga Larga</h4>
+                                <p class="text-[var(--primary-color)] font-bold text-sm sm:text-lg">$150 <span
+                                        class="float-right text-[var(--text-color)] line-through text-xs sm:text-sm">$10</span>
+                                </p>
+                                <a href="detalles_remera.html"
+                                    class="w-full text-white bg-[var(--button-color)] hover:bg-[var(--button-hover)] focus:ring-4 focus:outline-none focus:ring-[var(--primary-color)] font-medium rounded-lg text-sm py-2 transition duration-300 text-center block"
+                                    data-id="4">Ver detalle del producto</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Categoría Pantalones -->
+                <div class="mb-6 sm:mb-8">
+                    <h2
+                        class="text-lg sm:text-xl md:text-2xl font-light text-center text-[var(--alert-color)] mb-1 sm:mb-2 md:mb-3 bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] text-white px-1 sm:px-2 py-0.5 sm:py-1 rounded-lg transition duration-300 hover:text-[#f5e8c7]">
+                        Pantalones
+                    </h2>
+                    <br>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                        <div
+                            class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
+                            <img src="/src/static/img/productos/pantalon_m.jpeg" alt="Pantalón 1"
+                                class="w-full h-48 sm:h-56 md:h-64 object-cover">
+                            <div class="p-2 sm:p-4 space-y-2">
+                                <h4 class="text-sm sm:text-base font-semibold truncate">Jean Clásico</h4>
+                                <p class="text-[var(--primary-color)] font-bold text-sm sm:text-lg">$300 <span
+                                        class="float-right text-[var(--text-color)] line-through text-xs sm:text-sm">$20</span>
+                                </p>
+                                <a href="detalles_pantalon.html"
+                                    class="w-full text-white bg-[var(--button-color)] hover:bg-[var(--button-hover)] focus:ring-4 focus:outline-none focus:ring-[var(--primary-color)] font-medium rounded-lg text-sm py-2 transition duration-300 text-center block"
+                                    data-id="7">Ver detalle del producto</a>
+                            </div>
+                        </div>
+                        <div
+                            class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
+                            <img src="/src/static/img/productos/pantalon_m.jpeg" alt="Pantalón 2"
+                                class="w-full h-48 sm:h-56 md:h-64 object-cover">
+                            <div class="p-2 sm:p-4 space-y-2">
+                                <h4 class="text-sm sm:text-base font-semibold truncate">Pantalón Cargo</h4>
+                                <p class="text-[var(--primary-color)] font-bold text-sm sm:text-lg">$300 <span
+                                        class="float-right text-[var(--text-color)] line-through text-xs sm:text-sm">$20</span>
+                                </p>
+                                <a href="detalles_pantalon.html"
+                                    class="w-full text-white bg-[var(--button-color)] hover:bg-[var(--button-hover)] focus:ring-4 focus:outline-none focus:ring-[var(--primary-color)] font-medium rounded-lg text-sm py-2 transition duration-300 text-center block"
+                                    data-id="7">Ver detalle del producto</a>
+                            </div>
+                        </div>
+                        <div
+                            class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
+                            <img src="/src/static/img/productos/pantalon_m.jpeg" alt="Pantalón 3"
+                                class="w-full h-48 sm:h-56 md:h-64 object-cover">
+                            <div class="p-2 sm:p-4 space-y-2">
+                                <h4 class="text-sm sm:text-base font-semibold truncate">Jogger Deportivo</h4>
+                                <p class="text-[var(--primary-color)] font-bold text-sm sm:text-lg">$300 <span
+                                        class="float-right text-[var(--text-color)] line-through text-xs sm:text-sm">$20</span>
+                                </p>
+                                <a href="detalles_pantalon.html"
+                                    class="w-full text-white bg-[var(--button-color)] hover:bg-[var(--button-hover)] focus:ring-4 focus:outline-none focus:ring-[var(--primary-color)] font-medium rounded-lg text-sm py-2 transition duration-300 text-center block"
+                                    data-id="7">Ver detalle del producto</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Categoría Accesorios -->
+                <div class="mb-6 sm:mb-8">
+                    <h2
+                        class="text-lg sm:text-xl md:text-2xl font-light text-center text-[var(--alert-color)] mb-1 sm:mb-2 md:mb-3 bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] text-white px-1 sm:px-2 py-0.5 sm:py-1 rounded-lg transition duration-300 hover:text-[#f5e8c7]">
+                        Accesorios
+                    </h2>
+                    <br>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                        <div
+                            class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
+                            <img src="/src/static/img/productos/cartera_m.jpeg" alt="Accesorio 1"
+                                class="w-full h-48 sm:h-56 md:h-64 object-cover">
+                            <div class="p-2 sm:p-4 space-y-2">
+                                <h4 class="text-sm sm:text-base font-semibold truncate">Cartera Cuero</h4>
+                                <p class="text-[var(--primary-color)] font-bold text-sm sm:text-lg">$80 <span
+                                        class="float-right text-[var(--text-color)] line-through text-xs sm:text-sm">$5</span>
+                                </p>
+                                <a href="detalles_cartera.html"
+                                    class="w-full text-white bg-[var(--button-color)] hover:bg-[var(--button-hover)] focus:ring-4 focus:outline-none focus:ring-[var(--primary-color)] font-medium rounded-lg text-sm py-2 transition duration-300 text-center block"
+                                    data-id="10">Ver detalle del producto</a>
+                            </div>
+                        </div>
+                        <div
+                            class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
+                            <img src="/src/static/img/productos/cartera_m.jpeg" alt="Accesorio 2"
+                                class="w-full h-48 sm:h-56 md:h-64 object-cover">
+                            <div class="p-2 sm:p-4 space-y-2">
+                                <h4 class="text-sm sm:text-base font-semibold truncate">Cartera Shein</h4>
+                                <p class="text-[var(--primary-color)] font-bold text-sm sm:text-lg">$80 <span
+                                        class="float-right text-[var(--text-color)] line-through text-xs sm:text-sm">$5</span>
+                                </p>
+                                <a href="detalles_cartera.html"
+                                    class="w-full text-white bg-[var(--button-color)] hover:bg-[var(--button-hover)] focus:ring-4 focus:outline-none focus:ring-[var(--primary-color)] font-medium rounded-lg text-sm py-2 transition duration-300 text-center block"
+                                    data-id="10">Ver detalle del producto</a>
+                            </div>
+                        </div>
+                        <div
+                            class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
+                            <img src="/src/static/img/productos/cartera_m.jpeg" alt="Accesorio 3"
+                                class="w-full h-48 sm:h-56 md:h-64 object-cover">
+                            <div class="p-2 sm:p-4 space-y-2">
+                                <h4 class="text-sm sm:text-base font-semibold truncate">Cartera 'Diva'</h4>
+                                <p class="text-[var(--primary-color)] font-bold text-sm sm:text-lg">$80 <span
+                                        class="float-right text-[var(--text-color)] line-through text-xs sm:text-sm">$5</span>
+                                </p>
+                                <a href="detalles_cartera.html"
+                                    class="w-full text-white bg-[var(--button-color)] hover:bg-[var(--button-hover)] focus:ring-4 focus:outline-none focus:ring-[var(--primary-color)] font-medium rounded-lg text-sm py-2 transition duration-300 text-center block"
+                                    data-id="10">Ver detalle del producto</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Categoría Otros -->
+                <div class="mb-6 sm:mb-8">
+                    <h2
+                        class="text-lg sm:text-xl md:text-2xl font-light text-center text-[var(--alert-color)] mb-1 sm:mb-2 md:mb-3 bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] text-white px-1 sm:px-2 py-0.5 sm:p-1 rounded-lg transition duration-300 hover:text-[#f5e8c7]">
+                        Otros
+                    </h2>
+                    <br>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                        <div
+                            class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
+                            <img src="/src/static/img/productos/cinto.jpeg" alt="Otros 1"
+                                class="w-full h-48 sm:h-56 md:h-64 object-cover">
+                            <div class="p-2 sm:p-4 space-y-2">
+                                <h4 class="text-sm sm:text-base font-semibold truncate">Cinturón Cuero</h4>
+                                <p class="text-[var(--primary-color)] font-bold text-sm sm:text-lg">$400 <span
+                                        class="float-right text-[var(--text-color)] line-through text-xs sm:text-sm">$25</span>
+                                </p>
+                                <a href="detalles_cintos.html"
+                                    class="w-full text-white bg-[var(--button-color)] hover:bg-[var(--button-hover)] focus:ring-4 focus:outline-none focus:ring-[var(--primary-color)] font-medium rounded-lg text-sm py-2 transition duration-300 text-center block"
+                                    data-id="13">Ver detalle del producto</a>
+                            </div>
+                        </div>
+                        <div
+                            class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
+                            <img src="/src/static/img/productos/cinto.jpeg" alt="Otros 2"
+                                class="w-full h-48 sm:h-56 md:h-64 object-cover">
+                            <div class="p-2 sm:p-4 space-y-2">
+                                <h4 class="text-sm sm:text-base font-semibold truncate">Cinturon de traje </h4>
+                                <p class="text-[var(--primary-color)] font-bold text-sm sm:text-lg">$400 <span
+                                        class="float-right text-[var(--text-color)] line-through text-xs sm:text-sm">$25</span>
+                                </p>
+                                <a href="detalles_cintos.html"
+                                    class="w-full text-white bg-[var(--button-color)] hover:bg-[var(--button-hover)] focus:ring-4 focus:outline-none focus:ring-[var(--primary-color)] font-medium rounded-lg text-sm py-2 transition duration-300 text-center block"
+                                    data-id="13">Ver detalle del producto</a>
+                            </div>
+                        </div>
+                        <div
+                            class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
+                            <img src="/src/static/img/productos/cinto.jpeg" alt="Otros 3"
+                                class="w-full h-48 sm:h-56 md:h-64 object-cover">
+                            <div class="p-2 sm:p-4 space-y-2">
+                                <h4 class="text-sm sm:text-base font-semibold truncate">Cinturon Shein</h4>
+                                <p class="text-[var(--primary-color)] font-bold text-sm sm:text-lg">$400 <span
+                                        class="float-right text-[var(--text-color)] line-through text-xs sm:text-sm">$25</span>
+                                </p>
+                                <a href="detalles_cintos.html"
+                                    class="w-full text-white bg-[var(--button-color)] hover:bg-[var(--button-hover)] focus:ring-4 focus:outline-none focus:ring-[var(--primary-color)] font-medium rounded-lg text-sm py-2 transition duration-300 text-center block"
+                                    data-id="13">Ver detalle del producto</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="footer" class="bg-white py-8 border-t border-[var(--background-color)] bg-opacity-90">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Enlaces principales -->
+            <div>
+                <nav class="flex flex-col space-y-2 text-sm text-[var(--text-color)]">
+                    <a href="contactos.html"
+                        class="hover:text-[var(--primary-color)] transition duration-200">Soporte</a>
+                    <a href="about.html" class="hover:text-[var(--primary-color)] transition duration-200">¿Quiénes
+                        Somos?</a>
+                </nav>
+            </div>
+
+            <!-- Términos y condiciones -->
+            <div>
+                <h3 class="text-sm font-semibold text-[var(--primary-color)] mb-2">Términos y Condiciones</h3>
+                <p class="text-sm text-[var(--text-color)]">
+                    Al usar nuestro sitio, aceptas cumplir con nuestras políticas de uso, devoluciones y privacidad. Los
+                    productos adquiridos están sujetos a disponibilidad y pueden variar en precio sin previo aviso. Para
+                    más detalles, contáctanos a través de nuestro soporte.
+                </p>
+            </div>
+
+            <!-- Derechos de autor -->
+            <div>
+                <h3 class="text-sm font-semibold text-[var(--primary-color)] mb-2">Copyright</h3>
+                <p class="text-sm text-[var(--text-color)]">
+                    © 2025 CatClothes. Todos los derechos reservados. El contenido de este sitio, incluyendo imágenes y
+                    diseños, está protegido por las leyes de derechos de autor.
+                </p>
+            </div>
+
+            <!-- Redes sociales y logo -->
+            <div
+                class="flex items-center justify-between mb-6 bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] text-white rounded-lg px-4 py-2 shadow-md hover:text-[#f5e8c7] transition duration-300">
+
+                <!-- Logo y nombre -->
+                <div class="flex items-center">
+                    <img src="/src/static/img/FavIcon_CatClothes.png" alt="CatClothes Logo" class="w-8 h-8 mr-2">
+                    <span class="text-2xl font-light">CatClothes</span>
+                </div>
+
+                <!-- Íconos de redes sociales -->
+                <div class="flex space-x-3 ml-4">
+                    <a href="https://wa.me/1234567890" target="_blank" title="WhatsApp">
+                        <img src="/src/static/img/icons/whatsapp.png" alt="WhatsApp"
+                            class="w-6 h-6 hover:scale-110 transition-transform duration-200" />
+                    </a>
+                    <a href="https://facebook.com" target="_blank" title="Facebook">
+                        <img src="/src/static/img/icons/facebook.png" alt="Facebook"
+                            class="w-6 h-6 hover:scale-110 transition-transform duration-200" />
+                    </a>
+                    <a href="https://instagram.com" target="_blank" title="Instagram">
+                        <img src="/src/static/img/icons/logotipo-de-instagram.png" alt="Instagram"
+                            class="w-6 h-6 hover:scale-110 transition-transform duration-200" />
+                    </a>
+                    <a href="https://twitter.com" target="_blank" title="Twitter">
+                        <img src="/src/static/img/icons/twitter.png" alt="Twitter"
+                            class="w-6 h-6 hover:scale-110 transition-transform duration-200" />
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

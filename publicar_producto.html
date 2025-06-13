@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <!-- Configuración básica de codificación y responsive design -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title> CatClothes | Registro de Producto </title>
+
+  <!-- Tailwind CSS desde CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Ícono de pestaña -->
+  <link rel="icon" href="/src/static/img/FavIcon_CatClothes.png" type="image/x-icon" />
+
+  <!-- Fuente personalizada Raleway -->
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Variables CSS personalizadas para colores -->
+  <style>
+    :root {
+      --primary-color: #6B8E23;
+      --secondary-color: #D2691E;
+      --background-color: #FFF8E7;
+      --text-color: #333333;
+      --alert-color: #FF4500;
+      --button-color: #9BBF4D;
+      --button-hover: #7A9A3D;
+    }
+
+    body {
+      background-color: var(--background-color);
+    }
+  </style>
+</head>
+
+<body class="text-[var(--text-color)] min-h-screen font-['Raleway'] relative m-0">
+
+  <!-- Imagen de fondo fija -->
+  <div class="fixed inset-0 bg-[url('/src/static/img/background.jpg')] bg-cover bg-center bg-no-repeat -z-10"
+    aria-hidden="true"></div>
+
+  <!-- Capa semitransparente sobre el fondo para mejorar contraste -->
+  <div class="fixed inset-0 bg-[var(--background-color)] bg-opacity-60 -z-10"></div>
+
+  <main class="max-w-xl mx-auto p-6 bg-white bg-opacity-30 rounded-lg shadow-lg my-10">
+    <!-- Título principal del formulario -->
+    <h1
+      class="text-2xl font-light text-center text-[var(--alert-color)] mb-2 bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] text-white px-2 py-1 rounded-lg transition duration-300 hover:text-[#f5e8c7]">
+      Solicitud para subir un producto
+    </h1>
+    <br>
+    <br>
+
+    <!-- Formulario de subida de producto -->
+    <form class="space-y-6">
+      <!-- Campo: Nombre del producto -->
+      <div>
+        <label for="nombre" class="block text-sm font-medium mb-1">Nombre del producto</label>
+        <input type="text" id="nombre" name="nombre" required
+          class="w-full border-b-2 border-[var(--primary-color)] bg-transparent focus:outline-none focus:border-[var(--secondary-color)] px-2 py-2 text-sm" />
+      </div>
+
+      <!-- Campo: Precio -->
+      <div>
+        <label for="precio" class="block text-sm font-medium mb-1">Precio</label>
+        <input type="number" id="precio" name="precio" required
+          class="w-full border-b-2 border-[var(--primary-color)] bg-transparent focus:outline-none focus:border-[var(--secondary-color)] px-2 py-2 text-sm" />
+      </div>
+
+      <!-- Campo: Descripción -->
+      <div>
+        <label for="descripcion" class="block text-sm font-medium mb-1">Descripción del producto</label>
+        <textarea id="descripcion" name="descripcion" rows="4" placeholder="Escribe aquí..."
+          class="w-full border border-[var(--primary-color)] rounded-lg p-2 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--secondary-color)] bg-white"></textarea>
+      </div>
+
+      <!-- Campo: Tipo de producto -->
+      <div>
+        <label for="tipo" class="block text-sm font-medium mb-1">Tipo de producto</label>
+        <select id="tipo" name="tipo"
+          class="w-full border border-[var(--primary-color)] rounded-lg p-2 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--secondary-color)] bg-white">
+          <option>Remera</option>
+          <option>Pantalón</option>
+          <option>Buzo</option>
+          <option>Campera</option>
+          <option>Accesorio</option>
+          <option>Ropa interior</option>
+        </select>
+      </div>
+
+      <!-- Campo: Género -->
+      <div>
+        <label for="genero" class="block text-sm font-medium mb-1">Género de la prenda</label>
+        <select id="genero" name="genero"
+          class="w-full border border-[var(--primary-color)] rounded-lg p-2 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--secondary-color)] bg-white">
+          <option>Hombre</option>
+          <option>Mujer</option>
+          <option>Unisex</option>
+        </select>
+      </div>
+
+      <!-- Campo: Subida de imagen -->
+      <div>
+        <label for="imagen" class="block text-sm font-medium mb-1">Sube aquí las imágenes de tu producto</label>
+        <input type="file" id="imagen" name="imagen"
+          class="w-full text-sm border border-[var(--primary-color)] rounded-lg cursor-pointer bg-white focus:outline-none" />
+      </div>
+
+      <!-- Botón de envío (enlace simulado) -->
+      <a href="submit_producto.html"
+        class="w-full inline-block text-white bg-[var(--button-color)] hover:bg-[var(--button-hover)] focus:ring-4 focus:outline-none focus:ring-[var(--primary-color)] font-medium rounded-lg text-sm px-5 py-2.5 text-center transition duration-200">
+        Enviar
+      </a>
+    </form>
+  </main>
+
+  <!-- Pie de página -->
+  <footer id="footer" class="bg-white py-8 border-t border-[var(--primary-color)] bg-opacity-90">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+
+      <!-- Enlaces principales -->
+      <div>
+        <nav class="flex flex-col space-y-2 text-sm text-[var(--text-color)]">
+          <a href="contactos.html" class="hover:text-[var(--primary-color)] transition duration-200">Soporte</a>
+          <a href="about.html" class="hover:text-[var(--primary-color)] transition duration-200">¿Quiénes Somos?</a>
+        </nav>
+      </div>
+
+      <!-- Términos y condiciones -->
+      <div>
+        <h3 class="text-sm font-semibold text-[var(--primary-color)] mb-2">Términos y Condiciones</h3>
+        <p class="text-sm text-[var(--text-color)]">
+          Al usar nuestro sitio, aceptas cumplir con nuestras políticas de uso, devoluciones y privacidad. Los productos
+          adquiridos están sujetos a disponibilidad y pueden variar en precio sin previo aviso. Para más detalles,
+          contáctanos a través de nuestro soporte.
+        </p>
+      </div>
+
+      <!-- Copyright -->
+      <div>
+        <h3 class="text-sm font-semibold text-[var(--primary-color)] mb-2">Copyright</h3>
+        <p class="text-sm text-[var(--text-color)]">
+          © 2025 CatClothes. Todos los derechos reservados. El contenido de este sitio, incluyendo imágenes y diseños,
+          está protegido por las leyes de derechos de autor.
+        </p>
+      </div>
+
+      <!-- Redes sociales -->
+      <div
+        class="flex items-center justify-between mb-6 bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] text-white rounded-lg px-4 py-2 shadow-md hover:text-[#f5e8c7] transition duration-300">
+
+        <!-- Logo + nombre -->
+        <div class="flex items-center">
+          <img src="/src/static/img/FavIcon_CatClothes.png" alt="CatClothes Logo" class="w-8 h-8 mr-2">
+          <span class="text-2xl font-light">CatClothes</span>
+        </div>
+
+        <!-- Íconos sociales -->
+        <div class="flex space-x-3 ml-4">
+          <a href="https://wa.me/1234567890" target="_blank" title="WhatsApp">
+            <img src="/src/static/img/icons/whatsapp.png" alt="WhatsApp"
+              class="w-6 h-6 hover:scale-110 transition-transform duration-200" />
+          </a>
+          <a href="https://facebook.com" target="_blank" title="Facebook">
+            <img src="/src/static/img/icons/facebook.png" alt="Facebook"
+              class="w-6 h-6 hover:scale-110 transition-transform duration-200" />
+          </a>
+          <a href="https://instagram.com" target="_blank" title="Instagram">
+            <img src="/src/static/img/icons/logotipo-de-instagram.png" alt="Instagram"
+              class="w-6 h-6 hover:scale-110 transition-transform duration-200" />
+          </a>
+          <a href="https://twitter.com" target="_blank" title="Twitter">
+            <img src="/src/static/img/icons/twitter.png" alt="Twitter"
+              class="w-6 h-6 hover:scale-110 transition-transform duration-200" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CatClothes | Gestión de Perfil</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="/src/static/img/FavIcon_CatClothes.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #6B8E23;
+            --secondary-color: #D2691E;
+            --background-color: #FFF8E7;
+            --text-color: #333333;
+            --alert-color: #FF4500;
+            --button-color: #9BBF4D;
+            --button-hover: #7A9A3D;
+        }
+
+        body {
+            background-color: var(--background-color);
+        }
+
+        .star-filled {
+            color: #FFD700;
+        }
+    </style>
+</head>
+
+<body class="relative m-0 bg-[var(--background-color)] text-[var(--text-color)] min-h-screen font-['Raleway']">
+    <div class="fixed inset-0 bg-[url('/src/static/img/desert_background.jpg')] bg-cover bg-center bg-no-repeat -z-10"
+        aria-hidden="true"></div>
+    <div class="fixed inset-0 bg-[var(--background-color)] bg-opacity-60 -z-10"></div>
+
+    <!-- Header -->
+    <header id="header" class="bg-white shadow-md py-2 sm:py-4">
+        <div class="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
+            <div class="flex flex-col sm:flex-row items-center justify-between">
+                <div class="w-full sm:w-auto mb-2 sm:mb-0">
+                    <img src="/src/static/img/FavIcon2_CatClothes.png" id="logo" alt="CatClothes Logo"
+                        class="w-16 sm:w-24 md:w-32 mx-auto sm:mx-0">
+                </div>
+                <div class="w-full sm:w-auto flex justify-center sm:justify-end">
+                    <ul class="flex items-center space-x-2 sm:space-x-4">
+                        <li class="relative group">
+                            <img src="/src/static/img/icons/carrito.svg" id="img-carrito" alt="Carrito"
+                                class="w-5 sm:w-6 md:w-8 h-5 sm:h-6 md:h-8 cursor-pointer">
+                            <div id="carrito"
+                                class="absolute right-0 bg-white border rounded-lg shadow-lg mt-1 sm:mt-2 w-64 sm:w-72 md:w-80 opacity-0 group-hover:opacity-100 scale-0 group-hover:scale-100 transition duration-300 ease-in-out transform origin-top-right">
+                                <table id="lista-carrito" class="w-full text-xs sm:text-sm text-left">
+                                    <thead>
+                                        <tr class="border-b">
+                                            <th class="p-1 sm:p-2">Imagen</th>
+                                            <th class="p-1 sm:p-2">Nombre</th>
+                                            <th class="p-1 sm:p-2">Precio</th>
+                                            <th class="p-1 sm:p-2">Cantidad</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td colspan="5" class="p-1 sm:p-2 text-center text-[var(--text-color)]">El
+                                                carrito está vacío</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <a href="#" id="vaciar-carrito"
+                                    class="block bg-[var(--alert-color)] text-white text-center py-1 sm:py-2 rounded-b hover:bg-[#d63a25] transition duration-300">Vaciar
+                                    Carrito</a>
+                            </div>
+                        </li>
+                        <li class="relative group">
+                            <a href="publicar_producto.html">
+                                <div
+                                    class="bg-[var(--primary-color)] text-white rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center shadow-md hover:bg-[var(--secondary-color)] transition duration-300 ease-in-out scale-100 group-hover:scale-110">
+                                    <span class="text-xl sm:text-2xl font-bold">↑</span>
+                                </div>
+                            </a>
+                            <div
+                                class="absolute right-0 top-full mt-2 bg-white border rounded-lg shadow-lg w-64 sm:w-72 md:w-80 opacity-0 group-hover:opacity-100 scale-0 group-hover:scale-100 transition duration-300 ease-in-out transform origin-top-right">
+                                <p class="p-2 sm:p-4 text-center text-[var(--text-color)] text-xs sm:text-sm">Subir un
+                                    producto</p>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="login.html"
+                                class="px-3 sm:px-4 py-1 sm:py-2 bg-[var(--primary-color)] text-white rounded-md hover:bg-[var(--secondary-color)] focus:ring-4 focus:outline-none focus:ring-[var(--primary-color)] font-medium text-xs sm:text-sm transition duration-300">Cerrar
+                                Sesión</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sección de Gestión de Perfil -->
+    <section class="py-6 sm:py-8 md:py-12">
+        <div class="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
+            <h2
+                class="text-xl sm:text-2xl md:text-3xl font-light text-center text-[var(--alert-color)] mb-4 sm:mb-6 md:mb-8 bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] text-white px-2 sm:px-3 py-1 sm:py-2 rounded-lg transition duration-300 hover:text-[#f5e8c7]">
+                Gestión de Perfil</h2>
+            <div class="max-w-2xl mx-auto">
+                <div class="bg-white p-6 sm:p-8 rounded-lg shadow-md hover:shadow-lg transition duration-300 space-y-6">
+                    <!-- Foto de Perfil -->
+                    <div class="flex flex-col items-center">
+                        <div class="relative">
+                            <img src="/src/static/img/icons/user_icon.png" alt="Foto de Perfil"
+                                class="w-32 h-32 rounded-full border-2 border-[var(--primary-color)] object-cover">
+                            <label for="profile-pic"
+                                class="absolute bottom-0 right-0 bg-[var(--primary-color)] text-white rounded-full p-2 cursor-pointer hover:bg-[var(--secondary-color)] transition duration-300">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.536L16.732 3.732z">
+                                    </path>
+                                </svg>
+                            </label>
+                            <input type="file" id="profile-pic" class="hidden" accept="image/*">
+                        </div>
+                        <p class="mt-4 text-base font-semibold text-[var(--text-color)]">Juan Pérez</p>
+                    </div>
+
+                    <!-- Puntuación -->
+                    <div class="flex justify-center">
+                        <div class="flex flex-col items-center">
+                            <p class="text-sm font-medium text-gray-500 mb-2">Puntuación</p>
+                            <div class="flex items-center">
+                                <span class="star-filled text-lg">★</span>
+                                <span class="star-filled text-lg">★</span>
+                                <span class="star-filled text-lg">★</span>
+                                <span class="star-filled text-lg">★</span>
+                                <span class="text-lg text-gray-300">★</span>
+                                <span class="text-xs text-gray-500 ml-2">(4.0)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Formulario -->
+                    <div class="space-y-4">
+                        <div>
+                            <label for="nombre" class="block text-sm font-medium text-gray-500 mb-1">Nombre</label>
+                            <input type="text" id="nombre" value="Juan Pérez"
+                                class="w-full px-2 sm:px-4 py-1 sm:py-2 border border-[var(--secondary-color)] rounded-md text-xs sm:text-sm focus:ring-2 focus:ring-[var(--primary-color)] focus:border-[var(--primary-color)] transition duration-300">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-500 mb-1">Email</label>
+                            <input type="email" id="email" value="juan@example.com"
+                                class="w-full px-2 sm:px-4 py-1 sm:py-2 border border-[var(--secondary-color)] rounded-md text-xs sm:text-sm focus:ring-2 focus:ring-[var(--primary-color)] focus:border-[var(--primary-color)] transition duration-300">
+                        </div>
+                        <div>
+                            <label for="password"
+                                class="block text-sm font-medium text-gray-500 mb-1">Contraseña</label>
+                            <input type="password" id="password" value="********"
+                                class="w-full px-2 sm:px-4 py-1 sm:py-2 border border-[var(--secondary-color)] rounded-md text-xs sm:text-sm focus:ring-2 focus:ring-[var(--primary-color)] focus:border-[var(--primary-color)] transition duration-300">
+                        </div>
+                        <button
+                            class="w-full text-white bg-[var(--button-color)] hover:bg-[var(--button-hover)] focus:ring-4 focus:outline-none focus:ring-[var(--primary-color)] font-medium rounded-lg text-sm py-2 transition duration-300">Guardar
+                            Cambios</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white py-8 border-t border-[var(--background-color)] bg-opacity-90">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Enlaces principales -->
+                <div>
+                    <nav class="flex flex-col space-y-2 text-sm text-[var(--text-color)]">
+                        <a href="publicar_producto.html"
+                            class="hover:text-[var(--primary-color)] transition duration-200">Publica tu producto</a>
+                        <a href="contactos.html"
+                            class="hover:text-[var(--primary-color)] transition duration-200">Soporte</a>
+                        <a href="about.html" class="hover:text-[var(--primary-color)] transition duration-200">¿Quiénes
+                            Somos?</a>
+                    </nav>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-[var(--primary-color)] mb-2">Términos y Condiciones</h3>
+                    <p class="text-sm text-[var(--text-color)]">
+                        Al usar nuestro sitio, aceptas cumplir con nuestras políticas de uso, devoluciones y privacidad.
+                        Los productos adquiridos están sujetos a disponibilidad y pueden variar en precio sin previo
+                        aviso. Para más detalles, contáctanos a través de nuestro soporte.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-[var(--primary-color)] mb-2">Copyright</h3>
+                    <p class="text-sm text-[var(--text-color)]">
+                        © 2025 CatClothes. Todos los derechos reservados. El contenido de este sitio, incluidos imágenes
+                        y diseños, está protegido por las leyes de derechos de autor.
+                    </p>
+                </div>
+
+                <!-- Redes sociales -->
+                <div
+                    class="flex items-center justify-between mb-6 bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] text-white rounded-lg px-4 py-2 shadow-md hover:text-[#f5e8c7] transition duration-300">
+                    <!-- Logo + Título -->
+                    <div class="flex items-center">
+                        <img src="/src/static/img/FavIcon_CatClothes.png" alt="CatClothes Logo" class="w-8 h-8 mr-2">
+                        <span class="text-2xl font-light">CatClothes</span>
+                    </div>
+
+                    <!-- Íconos de redes -->
+                    <div class="flex space-x-3 ml-4">
+                        <a href="https://wa.me/1234567890" target="_blank" title="WhatsApp">
+                            <img src="/src/static/img/icons/whatsapp.png" alt="WhatsApp"
+                                class="w-6 h-6 hover:scale-110 transition-transform duration-200" />
+                        </a>
+                        <a href="https://facebook.com" target="_blank" title="Facebook">
+                            <img src="/src/static/img/icons/facebook.png" alt="Facebook"
+                                class="w-6 h-6 hover:scale-110 transition-transform duration-200" />
+                        </a>
+                        <a href="https://instagram.com" target="_blank" title="Instagram">
+                            <img src="/src/static/img/icons/logotipo-de-instagram.png" alt="Instagram"
+                                class="w-6 h-6 hover:scale-110 transition-transform duration-200" />
+                        </a>
+                        <a href="https://twitter.com" target="_blank" title="Twitter">
+                            <img src="/src/static/img/icons/twitter.png" alt="Twitter"
+                                class="w-6 h-6 hover:scale-110 transition-transform duration-200" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
