@@ -9,7 +9,7 @@
     <!-- Inyección de Tailwind CSS para estilos -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Icono de la página -->
-    <link rel="icon" href="/src/static/img/FavIcon_CatClothes.png" type="image/x-icon">
+    <link rel="icon" href="../static/img/FavIcon_CatClothes.png" type="image/x-icon">
     <!-- Fuente Raleway desde Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
@@ -35,7 +35,7 @@
 
 <body class="relative m-0 bg-[var(--background-color)] text-[var(--text-color)] min-h-screen font-['Raleway']">
     <!-- Imagen de fondo fija para toda la página -->
-    <div class="fixed inset-0 bg-[url('/src/static/img/desert_background.jpg')] bg-cover bg-center bg-no-repeat -z-10"
+    <div class="fixed inset-0 bg-[url('../static/img/desert_background.jpg')] bg-cover bg-center bg-no-repeat -z-10"
         aria-hidden="true"></div>
     <!-- Overlay semitransparente para mejorar legibilidad sobre el fondo -->
     <div class="fixed inset-0 bg-[var(--background-color)] bg-opacity-60 -z-10"></div>
@@ -45,19 +45,19 @@
         <div class="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
             <div class="flex flex-col sm:flex-row items-center justify-between">
                 <div class="w-full sm:w-auto mb-2 sm:mb-0">
-                    <img src="/src/static/img/FavIcon2_CatClothes.png" id="logo" alt="CatClothes Logo"
+                    <img src="../static/img/FavIcon2_CatClothes.png" id="logo" alt="CatClothes Logo"
                         class="w-16 sm:w-24 md:w-32 mx-auto sm:mx-0">
                 </div>
                 <div class="w-full sm:w-auto flex justify-center sm:justify-end">
                     <ul class="flex items-center space-x-2 sm:space-x-4">
                         <li class="relative group">
                             <a href="gestion_perfil.html">
-                                <img src="/src/static/img/icons/perfil.svg" id="img-perfil" alt="Perfil"
+                                <img src="../static/img/icons/perfil.svg" id="img-perfil" alt="Perfil"
                                     class="w-5 sm:w-6 md:w-8 h-5 sm:h-6 md:h-8 cursor-pointer">
                             </a>
                         </li>
                         <li class="relative group">
-                            <img src="/src/static/img/icons/carrito.svg" id="img-carrito" alt="Carrito"
+                            <img src="../static/img/icons/carrito.svg" id="img-carrito" alt="Carrito"
                                 class="w-5 sm:w-6 md:w-8 h-5 sm:h-6 md:h-8 cursor-pointer">
                             <div id="carrito"
                                 class="absolute right-0 bg-white border rounded-lg shadow-lg mt-1 sm:mt-2 w-64 sm:w-72 md:w-80 opacity-0 group-hover:opacity-100 scale-0 group-hover:scale-100 transition duration-300 ease-in-out transform origin-top-right">
@@ -117,7 +117,7 @@
                 <div class="w-full md:w-1/2 mb-4 md:mb-0">
                     <div
                         class="flex items-center mb-4 bg-gradient-to-r from-[var(--primary-color)] to-[var(--secondary-color)] text-white rounded-lg px-2 sm:px-3 py-1 sm:py-2 transition duration-300 hover:text-[#f5e8c7]">
-                        <img src="/src/static/img/FavIcon_CatClothes.png" alt="CatClothes Logo"
+                        <img src="../static/img/FavIcon_CatClothes.png" alt="CatClothes Logo"
                             class="w-5 sm:w-6 md:w-8 h-5 sm:h-6 md:h-8 mr-1 sm:mr-2">
                         <span class="text-lg sm:text-xl md:text-2xl font-light">CatClothes Productos</span>
                     </div>
@@ -183,7 +183,7 @@
                     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                         <div
                             class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
-                            <img src="/src/static/img/productos/buzo.jpeg" alt="Buzo 1"
+                            <img src="../static/img/productos/buzo.jpeg" alt="Buzo 1"
                                 class="w-full h-48 sm:h-56 md:h-64 object-cover">
                             <div class="p-2 sm:p-4 space-y-2">
                                 <h4 class="text-sm sm:text-base font-semibold truncate">Buzo Estampado</h4>
@@ -197,7 +197,7 @@
                         </div>
                         <div
                             class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
-                            <img src="/src/static/img/productos/buzo.jpeg" alt="Buzo 2"
+                            <img src="../static/img/productos/buzo.jpeg" alt="Buzo 2"
                                 class="w-full h-48 sm:h-56 md:h-64 object-cover">
                             <div class="p-2 sm:p-4 space-y-2">
                                 <h4 class="text-sm sm:text-base font-semibold truncate">Buzo Liso</h4>
@@ -211,7 +211,7 @@
                         </div>
                         <div
                             class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
-                            <img src="/src/static/img/productos/buzo.jpeg" alt="Buzo 3"
+                            <img src="../static/img/productos/buzo.jpeg" alt="Buzo 3"
                                 class="w-full h-48 sm:h-56 md:h-64 object-cover">
                             <div class="p-2 sm:p-4 space-y-2">
                                 <h4 class="text-sm sm:text-base font-semibold truncate">Buzo con Capucha</h4>
@@ -236,7 +236,7 @@
                     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                         <div
                             class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
-                            <img src="/src/static/img/productos/remera.jpeg" alt="Remera 1"
+                            <img src="../static/img/productos/remera.jpeg" alt="Remera 1"
                                 class="w-full h-48 sm:h-56 md:h-64 object-cover">
                             <div class="p-2 sm:p-4 space-y-2">
                                 <h4 class="text-sm sm:text-base font-semibold truncate">Remera Básica</h4>
@@ -250,7 +250,7 @@
                         </div>
                         <div
                             class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
-                            <img src="/src/static/img/productos/remera.jpeg" alt="Remera 2"
+                            <img src="../static/img/productos/remera.jpeg" alt="Remera 2"
                                 class="w-full h-48 sm:h-56 md:h-64 object-cover">
                             <div class="p-2 sm:p-4 space-y-2">
                                 <h4 class="text-sm sm:text-base font-semibold truncate">Remera Estampada</h4>
@@ -264,7 +264,7 @@
                         </div>
                         <div
                             class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
-                            <img src="/src/static/img/productos/remera.jpeg" alt="Remera 3"
+                            <img src="../static/img/productos/remera.jpeg" alt="Remera 3"
                                 class="w-full h-48 sm:h-56 md:h-64 object-cover">
                             <div class="p-2 sm:p-4 space-y-2">
                                 <h4 class="text-sm sm:text-base font-semibold truncate">Remera Manga Larga</h4>
@@ -289,7 +289,7 @@
                     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                         <div
                             class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
-                            <img src="/src/static/img/productos/pantalon_m.jpeg" alt="Pantalón 1"
+                            <img src="../static/img/productos/pantalon_m.jpeg" alt="Pantalón 1"
                                 class="w-full h-48 sm:h-56 md:h-64 object-cover">
                             <div class="p-2 sm:p-4 space-y-2">
                                 <h4 class="text-sm sm:text-base font-semibold truncate">Jean Clásico</h4>
@@ -303,7 +303,7 @@
                         </div>
                         <div
                             class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
-                            <img src="/src/static/img/productos/pantalon_m.jpeg" alt="Pantalón 2"
+                            <img src="../static/img/productos/pantalon_m.jpeg" alt="Pantalón 2"
                                 class="w-full h-48 sm:h-56 md:h-64 object-cover">
                             <div class="p-2 sm:p-4 space-y-2">
                                 <h4 class="text-sm sm:text-base font-semibold truncate">Pantalón Cargo</h4>
@@ -317,7 +317,7 @@
                         </div>
                         <div
                             class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
-                            <img src="/src/static/img/productos/pantalon_m.jpeg" alt="Pantalón 3"
+                            <img src="../static/img/productos/pantalon_m.jpeg" alt="Pantalón 3"
                                 class="w-full h-48 sm:h-56 md:h-64 object-cover">
                             <div class="p-2 sm:p-4 space-y-2">
                                 <h4 class="text-sm sm:text-base font-semibold truncate">Jogger Deportivo</h4>
@@ -342,7 +342,7 @@
                     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                         <div
                             class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
-                            <img src="/src/static/img/productos/cartera_m.jpeg" alt="Accesorio 1"
+                            <img src="../static/img/productos/cartera_m.jpeg" alt="Accesorio 1"
                                 class="w-full h-48 sm:h-56 md:h-64 object-cover">
                             <div class="p-2 sm:p-4 space-y-2">
                                 <h4 class="text-sm sm:text-base font-semibold truncate">Cartera Cuero</h4>
@@ -356,7 +356,7 @@
                         </div>
                         <div
                             class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
-                            <img src="/src/static/img/productos/cartera_m.jpeg" alt="Accesorio 2"
+                            <img src="../static/img/productos/cartera_m.jpeg" alt="Accesorio 2"
                                 class="w-full h-48 sm:h-56 md:h-64 object-cover">
                             <div class="p-2 sm:p-4 space-y-2">
                                 <h4 class="text-sm sm:text-base font-semibold truncate">Cartera Shein</h4>
@@ -370,7 +370,7 @@
                         </div>
                         <div
                             class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
-                            <img src="/src/static/img/productos/cartera_m.jpeg" alt="Accesorio 3"
+                            <img src="../static/img/productos/cartera_m.jpeg" alt="Accesorio 3"
                                 class="w-full h-48 sm:h-56 md:h-64 object-cover">
                             <div class="p-2 sm:p-4 space-y-2">
                                 <h4 class="text-sm sm:text-base font-semibold truncate">Cartera 'Diva'</h4>
@@ -395,7 +395,7 @@
                     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                         <div
                             class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
-                            <img src="/src/static/img/productos/cinto.jpeg" alt="Otros 1"
+                            <img src="../static/img/productos/cinto.jpeg" alt="Otros 1"
                                 class="w-full h-48 sm:h-56 md:h-64 object-cover">
                             <div class="p-2 sm:p-4 space-y-2">
                                 <h4 class="text-sm sm:text-base font-semibold truncate">Cinturón Cuero</h4>
@@ -409,7 +409,7 @@
                         </div>
                         <div
                             class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
-                            <img src="/src/static/img/productos/cinto.jpeg" alt="Otros 2"
+                            <img src="../static/img/productos/cinto.jpeg" alt="Otros 2"
                                 class="w-full h-48 sm:h-56 md:h-64 object-cover">
                             <div class="p-2 sm:p-4 space-y-2">
                                 <h4 class="text-sm sm:text-base font-semibold truncate">Cinturon de traje </h4>
@@ -423,7 +423,7 @@
                         </div>
                         <div
                             class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
-                            <img src="/src/static/img/productos/cinto.jpeg" alt="Otros 3"
+                            <img src="../static/img/productos/cinto.jpeg" alt="Otros 3"
                                 class="w-full h-48 sm:h-56 md:h-64 object-cover">
                             <div class="p-2 sm:p-4 space-y-2">
                                 <h4 class="text-sm sm:text-base font-semibold truncate">Cinturon Shein</h4>
@@ -478,26 +478,26 @@
 
                 <!-- Logo y nombre -->
                 <div class="flex items-center">
-                    <img src="/src/static/img/FavIcon_CatClothes.png" alt="CatClothes Logo" class="w-8 h-8 mr-2">
+                    <img src="../static/img/FavIcon_CatClothes.png" alt="CatClothes Logo" class="w-8 h-8 mr-2">
                     <span class="text-2xl font-light">CatClothes</span>
                 </div>
 
                 <!-- Íconos de redes sociales -->
                 <div class="flex space-x-3 ml-4">
                     <a href="https://wa.me/1234567890" target="_blank" title="WhatsApp">
-                        <img src="/src/static/img/icons/whatsapp.png" alt="WhatsApp"
+                        <img src="../static/img/icons/whatsapp.png" alt="WhatsApp"
                             class="w-6 h-6 hover:scale-110 transition-transform duration-200" />
                     </a>
                     <a href="https://facebook.com" target="_blank" title="Facebook">
-                        <img src="/src/static/img/icons/facebook.png" alt="Facebook"
+                        <img src="../static/img/icons/facebook.png" alt="Facebook"
                             class="w-6 h-6 hover:scale-110 transition-transform duration-200" />
                     </a>
                     <a href="https://instagram.com" target="_blank" title="Instagram">
-                        <img src="/src/static/img/icons/logotipo-de-instagram.png" alt="Instagram"
+                        <img src="../static/img/icons/logotipo-de-instagram.png" alt="Instagram"
                             class="w-6 h-6 hover:scale-110 transition-transform duration-200" />
                     </a>
                     <a href="https://twitter.com" target="_blank" title="Twitter">
-                        <img src="/src/static/img/icons/twitter.png" alt="Twitter"
+                        <img src="../static/img/icons/twitter.png" alt="Twitter"
                             class="w-6 h-6 hover:scale-110 transition-transform duration-200" />
                     </a>
                 </div>
